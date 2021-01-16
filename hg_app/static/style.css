@@ -1,0 +1,211 @@
+body {
+  width: 100%;
+  background-image: url("tree.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#wrap {
+  margin: 0px auto;
+  width: 950px;
+  font-family: sans-serif;
+  padding: 25px;
+}
+
+.logo img{
+  border-color: goldenrod;
+  width: 700px;
+  height: 350px;
+  margin-left: 400px;
+  margin-top: 30px;
+  border-radius: 50px;
+  border-style: double;
+  border-width: 10px;
+  opacity: 1.0;
+  margin: center;
+}
+
+.greeting h1 {
+  color: red;
+  font-style: italic;
+  font-size: 55px;
+  text-shadow: 2px 3px 6px white;
+  margin-left: 410px;
+}
+
+.content {
+  width: 750px;
+  margin-left: 410px;
+  align-content: center;
+  
+}
+
+.content p {
+  color: white;
+  text-shadow: 2px 3px 6px black;
+  font-weight: bold;
+  font-size: 25px;
+  text-align: justify;
+  margin-left: 5px;
+  padding: 2px; 
+  font-style: italic; 
+  text-align: center;
+}
+
+.content a .href {
+  color: white;
+  font-size: 55px;
+  
+}
+
+.content   
+  .form-box {
+    display: inline-block;
+    background-color: #ffffff00;
+    color: red;
+    width: 400px;
+    min-height: 500px;
+    padding: 25px;
+    vertical-align: top;
+    margin: 10px;
+  }
+  
+  .form-box form {
+    margin: 25px;
+  }
+  
+  .form-box input {
+    display: block;
+    margin: 10px;
+  }
+  
+  #errors {
+    text-align: center;
+    color: red;
+    background-color: #ffffff00;
+    padding: 20px;
+    height: 150px;
+    font-weight: bold;
+  }
+  form.example input[type="text"] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 200px;
+    background: #f1f1f1;
+  }
+  form.example button {
+    float: left;
+    width: 50px;
+    padding: 10px;
+    background: #2196f3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+  }
+  form.example button:hover {
+    background: #0b7dda;
+  }
+  form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  .fa{
+      display: inline-flex;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff00;
+      margin-left: 600px;
+  }
+    .fa li{
+      position: relative;
+      display: inline-flex;
+      font-size: 30px;
+      height: 60px;
+      width: 60px;
+      background: #ffffff00;
+      line-height: 60px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: .5s;
+      padding: 5px;
+      margin: 0px auto;
+    }
+    ul li:before{
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      height: inherit;
+      width: inherit;
+      border-radius: 50%;
+      transform: scale(.9);
+      z-index: -1;
+      transition: .5s;
+    }
+    ul li:nth-child(1):before{
+      background: orange;
+    }
+    ul li:nth-child(2):before{
+      background: #1DA1F2;
+    }
+    ul li:nth-child(3):before{
+      background: #E1306C;
+    }
+    ul li:hover:before{
+      filter: blur(3px);
+      transform: scale(1.2);
+    }
+    ul li:nth-child(1):hover:before{
+      box-shadow: 0 0 15px orange;
+    }
+    ul li:nth-child(2):hover:before{
+      box-shadow: 0 0 15px orange;
+    }
+    ul li:nth-child(3):hover:before{
+      box-shadow: 0 0 15px #E1306C;
+    }
+    ul li:nth-child(1):hover{
+      color: #456cba;
+      box-shadow: 0 0 1px #ffa502;
+      text-shadow: 0 0 15px #4267B2;
+    }
+    ul li:nth-child(2):hover{
+      color: #ffa502;
+      box-shadow: 0 0 1px #1DA1F2;
+      text-shadow: 0 0 15px #1DA1F2;
+    }
+    ul li:nth-child(3):hover{
+      color: white;
+      box-shadow: 0 0 1px #E1306C;
+      text-shadow: 0 0 15px #E1306C;
+    }
+    ul li:hover{
+      color: #ffa502;
+      box-shadow: 0 0 1px #d35400;
+      text-shadow: 0 0 15px #d35400;
+    }
+    .recent {
+        color: red;
+        display: inline-block;
+        margin-top: 30px;
+        margin-left: 20px;
+    }
+    .trending {
+      color: red;
+      display: inline-block;
+      margin-top: 30px;
+      margin-left: 20px;
+  }
+  .allcards {
+      color: red;
+      display: inline-block;
+      margin-top: 30px;
+      margin-left: 20px;
+  }
+

@@ -1,0 +1,25 @@
+<div class="add_song" style="margin-top: -500px; margin-left: 1000px;">
+      <h3 style="text-align: center;">Add a song to your card</h3>
+      <table class="table-dark" >
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Song</th>
+                <th>Add Song</th>
+            </tr>
+        </thead>
+        <tbody>
+          {%for song in songs%}
+            <tr>
+                <td>{{song.name}}</td>
+                <td>
+                  <audio controls style="width: 95px; transform: scale(0.7);" class="bgMusic">
+                    <source  src="https://res.cloudinary.com/dnwhdkhgg/video/upload/v{{song.aud.version}}/{{song.aud.public_id}}.{{song.aud.format}}" type="audio/mpeg"  >
+                  </audio>
+                </td>
+                <td style="text-align: center;"><input type="radio" name="song_id" value={{song.id}} {% if this_card.audio.id == song.id %} checked {%endif%}></td>
+            </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Holidays!</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'view.css' %}">
+</head>
+<body>
+    <h2 style="margin-left: 500px;">{{request.session.user_name}} wishes you HAPPY HOLIDAYS!</h2>
+    <img src="https://res.cloudinary.com/dnwhdkhgg/image/upload/v{{image.img.version}}/{{image.img.public_id}}.{{image.img.format}} " alt="{{card.name}}" id="img-preview"/>
+    <div class="greeting">
+        <p style="display: inline-block;">{{ card.message }}</p>
+    </div>
+    <!-- if song add here -->
+    <!-- Likes -->
+    <a href="/like/{{message.id}}"><img src="{% static 'like2.svg' %}" style="width: 100px; margin-left: 600px; display: inline-block; margin-top: 30px;"/></a>
+    <p style="margin-left: 10px; color: black; text-decoration: underline; width: 100px; display: inline-block;">{{ message.user_likes.count }}
+    <!-- Comments would display here -->
+    <form action="">
+        <textarea id="comment" cols="48" rows="10"></textarea>
+        <button id="button">Add Comment</button>
+    </form>
+</body>
+</html>

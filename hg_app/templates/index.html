@@ -1,0 +1,46 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holiday Greetings</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="logo">
+        <img src="{% static 'holgtngswflks_logo.png' %}" >
+    </div>
+    <div class="greeting">
+        <h1 >Welcome to Holiday Greetings!!</h1>
+    </div>
+    <div class="content">
+        <p>
+    <audio class="bgMusic" style="float: right;" autoplay>
+        <source src="{% static 'wish.mp3' %}" type="audio/mpeg">
+    </audio>
+<!-- 
+    <div style="width: 550px; border: 3px dotted white; margin-left: 450px; align-content: center; background: rgba(0, 0, 0.5, 0.5);">
+        <p style="color: yellow; font-weight: bold; width: 500px; font-size: 20px; text-align: justify; margin-left: 20px; "> -->
+            In this tough times we believe that a friendship or family relationship can make a difference, knowing that
+            we are not alone in this can give us the positive attitude we all need and nothing better that sending a
+            little detail to those loved ones. Here you can send holiday greetings by selecting one of our cards or
+            videos, you can upload your own image or video, add a personalized greeting and sending it directly just by
+            adding some information. 
+            <br>
+            <br>
+            <a href="/login_reg" style="color: yellow;">JOIN US</a> and start creating Holiday
+            Greetings!</p>
+    </div>
+    <div class="fa">
+        <ul>
+            <li><i class="fab fa-facebook-f" style="margin-left: 12px;"></i></li>
+            <li><i class="fab fa-instagram" style="margin-left: 12px;"></i></li>
+            <li><i class="fab fa-youtube" style="margin-left: 12px;"></i></li>
+        </ul>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html>

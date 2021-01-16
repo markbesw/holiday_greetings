@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Card</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'view.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+
+</head>
+<body>
+    {%if visitor%}
+    <h2 style="font-size: 30px; text-align: center;">{{ card.creator.first_name }} {{ card.creator.last_name }} wishes you HAPPY HOLIDAYS!</h2>
+    {%else%}
+    <div style="margin: auto 20px; display: flex; justify-content: space-between;">
+        <a href="/edit_card/{{card.id}}" ><h3 style="color: black; font-size: 25px;">Go Back to Edit Card</h3></a>
+        <a href="/cards/mycards"><h3 style="color: black; font-size: 25px; ">Back to My Cards</h3></a>
+        
+    </div>
+    <!-- flash message to indicate email was sent -->
+    {% for message in messages%}
+    <div class="email-alert" style="background-color: rgb(202, 238, 202); margin: 0px; padding: 15px 20px 10px; display: flex; justify-content: space-between;">        
+        <span id="flash-msg"><strong>Thank you!</strong> Your holiday greeting has been sent!</span>
+        <a href="#" class="close" data-dismiss="alert" aria-label="close" style="text-decoration: none; font-size: 30px; color: darkgreen; font-weight: bolder;">&times;</a>
+    </div>
+    {%endfor%}
+
+    <h1 style="text-align: center;">Please review your holiday greeting</h1>
+    {%if card.viewed%}
+    <i style="color: green; text-align: right;"><h4><i class="material-icons">check_circle</i>This card was viewed! </h4></i>
+    {%else%}
+    <i style="color: blue; text-align: right;"><h4>This card has not been viewed!</h4></i>
+    {%endif%}  
+
+    {%endif%}
+    <audio autoplay class="bgMusic">
+        <source  src="https://res.cloudinary.com/dnwhdkhgg/video/upload/v{{card.audio.aud.version}}/{{card.audio.aud.public_id}}.{{card.audio.aud.format}}" type="audio/mpeg"  >
+    </audio>
+
+    <div id="img-msg" style="display: flex; justify-content: center; margin-top: 20px;">
+        <img src="https://res.cloudinary.com/dnwhdkhgg/image/upload/v{{image.img.version}}/{{image.img.public_id}}.{{image.img.format}} " alt="{{card.name}}" id="img-preview"/>
+        <div class="greeting">
+            <p>{{ card.message }}</p>
+        </div>
+    </div>
+    
+    <!-- Likes -->
+    <i ><h3 style="margin-top: 20px; text-align: center;">{{card.likes}} likes<button id="like-button" onclick="window.location.href='/like/{{card.id}}';" {%if user in card.user_likes.all%} disabled {%endif%}></button></h3></i>
+
+    <!-- <img src="{% static 'like2.svg' %}" style="width: 100px; margin-bottom: -15px; margin-left: 30px;"/> -->
+    
+    <p style="margin-left: 10px; color: black; text-decoration: underline; width: 100px; display: inline-block;">{{ message.user_likes.count }}</p>
+
+    <div id="bottom" style="display: flex; justify-content: center;">
+        <!-- add a form to get email address to invite, pass card iD in URL -->
+        {%if not visitor%}
+        
+            <form action="/send_email/{{card.id}}" id="send_card" method="POST" >
+                {% csrf_token %}
+                Name: <br><input type="text" name='name' style="display: block; margin-bottom: 20px; width: 100%; height: 20px;" placeholder="Receiver Name">
+                Subject: <br><input type="text" name='subject' style="display: block; margin-bottom: 20px; width: 100%; height: 20px;" placeholder="Your Subject Here">
+                Email: <br><input type="text" name='email' style="display: block; width: 100%; height: 20px;" placeholder="Receiver Email Address Here">
+                <input type="hidden" name="link" value="www.holidaygreetingscards.com/view_card/{{card.unique_id}}/{{card.id}}"><br>
+                <button type="submit" class="button">{%if card.receiver_name%}Send this card to another person{%else%}Send Your Card{%endif%}</button>
+            </form>     
+        {%endif%}
+
+
+        <!-- Comments would display here -->
+        <div id="msg-section" style="margin-left: 20px;" >
+            {%for comment in comments%}
+            <div class="message" style="margin: 0px auto 10px; width: 500px; border: paleturquoise 2px dotted; background-color: rgba(175, 238, 238, 0.144);">
+                <h4>{{comment.content}}</h4>
+                {%if comment.poster%}
+                <p>{{comment.poster}}</p>
+                {%else%}
+                <p>By card receiver</p>
+                {%endif%}
+            </div>
+            {%endfor%} 
+
+            <form action="/create_comment" id="comment" method="POST">
+                {%csrf_token%}
+                <textarea name="contents" cols="60" rows="4" placeholder="Leave a Comment"></textarea><br>
+                <input type="hidden" name="card_id" value={{card.id}}>
+                <button type="submit" class="button">Add Comment</button>
+            </form>
+        </div>
+        
+        
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

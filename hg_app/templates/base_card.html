@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Cards</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <h1 style="font-size: 25px; color: red;  text-shadow: 1px 1px 5px rgb(0, 0, 0), 1px 1px 5px rgb(0, 0, 0);">View All {{page_name}}</h1>
+    
+    <br>
+    <a href="/home" style="font-size: 25px; color: red;  text-shadow: 1px 1px 5px rgb(0, 0, 0), 1px 1px 5px rgb(0, 0, 0);">Go Back</a> <br>
+    {%if mycards%}
+    {% for card in cards %}
+    <a href="/view_card/{{card.id}}"><img src="https://res.cloudinary.com/dnwhdkhgg/image/upload/v{{card.images.first.img.version}}/{{card.images.first.img.public_id}}.{{card.images.first.img.format}} " alt="{{card.images.first.name}}" style="width: 300px; display: inline-block; margin-right: 30px;"></a>
+    {% endfor %}
+
+    {%else%}
+    {% for card in cards %}
+    <a href="/create/{{card.id}}"><img src="https://res.cloudinary.com/dnwhdkhgg/image/upload/v{{card.img.version}}/{{card.img.public_id}}.{{card.img.format}} " alt="{{card.name}}" style="width: 300px; display: inline-block; margin-right: 30px;"></a>
+    {% endfor %}
+    {%endif%}
+
+</body>
+</html>

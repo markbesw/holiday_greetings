@@ -1,0 +1,28 @@
+body {
+    background-image: url("tree.jpeg");
+  }
+#send_card {
+    display: block;
+    color: yellow;
+    margin: auto;
+    font-size: 20px;
+    width: 420px;
+}
+
+button[type="submit"] {
+    width: 300px;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 24px;
+    border-radius: 8px;
+    font-family: 'Montserrat';
+    color: rgb(27, 166, 247);
+    text-align: center;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: .3s ease background-color;
+}
+button[type="submit"]:hover {
+    background-color: rgb(214, 226, 236);
+}

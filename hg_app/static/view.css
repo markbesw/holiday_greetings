@@ -1,0 +1,85 @@
+body {
+    background-image: url("happyholidays.jpg");
+    background-size:contain;
+    /* background-repeat: no-repeat; */
+}
+#img-preview {
+    width: 400px;
+    display: inline-block;
+    margin-right: 20px;
+}
+.greeting {
+    display: inline-block;
+    width: 400px;
+    height: auto;
+    border: 4px dotted paleturquoise;
+    vertical-align: top;
+    text-align: center;
+    font-size: 20px;
+    background: rgba(103, 139, 139, 0.247);
+    color: rgb(0, 104, 104);
+}
+#comment {
+    margin:auto;    
+    text-align: center;
+    
+}
+.button {
+    display: block;
+    width: 150px;
+    height: auto;
+    padding: 10px;
+    background: #4E9CAF;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    line-height: 25px;
+    text-decoration: none;
+    /* box-shadow: 5px 5px darkblue; */
+    margin:auto;
+}
+
+#send_card{
+    margin-right: 20px;
+    width: 250px;  
+    border-right: paleturquoise dotted 5px;
+    padding-right: 50px;
+}
+
+button[type="submit"] {
+    width: 200px;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 24px;
+    border-radius: 8px;
+    font-family: 'Montserrat';
+    color: gold;
+    background-color: black;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: .3s ease background-color;
+  }
+  button[type="submit"]:hover {
+    background-color: silver;
+  }
+
+  #like-button{
+      background: url('/static/like2.svg');
+      background-size: contain;
+      width: 100px;
+      height: 42px;
+      border: 0;
+      vertical-align: middle;
+      margin-left: 10px;
+      margin-bottom: 0;
+
+  }
+
+  #flash-msg{
+      color: darkgreen;
+      font-size: larger;
+      
+  }

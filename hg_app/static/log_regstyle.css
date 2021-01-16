@@ -1,0 +1,91 @@
+body {
+    width: 100%;
+    height: 400px;
+    background-image: url("tree.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  
+  .top navbar {
+    background-color: white;
+  }
+  
+  .h1{
+    font:  white;
+    font-size: 20px;
+    background-color: white;
+    margin-left: 200px;
+    margin-bottom: -20px;
+    margin-top: 60px;
+  
+  }
+  
+  #wrap {
+    margin: 0px auto;
+    width: 950px;
+    font-family: sans-serif;
+    padding: 25px;
+    color: white;
+  }
+  
+  .top h1{
+    color: white;
+    text-align: center;
+    font-size: 48px;
+    font-style: italic;
+    text-shadow: 2px 2px 4px red;
+    
+  }
+  
+  .form-box {
+    display: inline-block;
+    width: 350px;
+    min-height: 500px;
+    padding: 25px;
+    vertical-align: top;
+    margin: 25px;
+    height: 350px;
+    background-image: linear-gradient(red, rgb(21, 100, 46));
+    opacity: 0.9;
+    border-style: double;
+    border-color: goldenrod;
+    border-width: 10px;
+    font-style: italic;
+    text-shadow: black;
+    border-radius: 25px;
+  }
+  
+  .form-box h1 {
+    font-size: 45px;
+    text-shadow: 2px 3px 6px black;
+    text-align: center;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  
+  .form-box input {
+    display: block;
+    margin: 10px;
+    font-style: italic;
+    text-align: center;
+  }
+  .form-box form {
+    margin: 25px;
+  }
+    
+    
+  #errors {
+    text-align: center;
+    color: yellow;
+    text-shadow: 2px 3px 6px black;
+    background-color: #ffffff00;
+    padding: 15px;
+    height: 150px;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 5px;
+   
+  }
+  
+  

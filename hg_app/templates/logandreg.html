@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holiday Greetings Register or Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'log_regstyle.css' %}">
+</head>
+<body>
+    <div class="top">
+        <a href="/" style="color: gold; font-weight: bold; font-size: 25px;">Back Home</a>
+        <h1>Thank you so much for joining us!
+        <br>
+        <br>
+        We are happy to assist sending a bright moment to your loved ones!</h1>
+    </div>
+    <div id='wrap'>
+        {% if messages %}
+            <div id='errors'>
+                {% for message in messages %}
+                    <p>- {{message}} -</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <div class='form-box'>
+            <h1>Register:</h1>
+            <form action="/create_user" method=POST>
+                {% csrf_token %}
+                First Name: <input type="text" name='f_n'>
+                Last Name: <input type="text" name='l_n'>
+                Email: <input type="text" name='email'>
+                Password: <input type="password" name='pw'>
+                Confirm Password: <input type="password" name='conf_pw'>
+                <input type="submit" value='Create User'>
+            </form>
+        </div>
+        <div class='form-box'>
+            <h1>Login:</h1>
+            <form action="/login" method=POST>
+                {% csrf_token %}
+                Email: <input type="text" name='email'>
+                Password: <input type="password" name='pw'>
+                <input type="submit" value='Login'>
+            </form>
+        </div>
+    </div>
+    <audio class="bgMusic" style="float: right;" autoplay>
+        <source src="{% static 'jingle.mp3' %}" type="audio/mpeg">
+    </audio>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

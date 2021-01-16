@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holiday Greetings</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="topnav" style="display: inline-flex; margin-bottom: 30px;">
+        <h1 class="welcome" style="text-decoration: underline; color: red; margin-left: 20px; text-shadow: 1px 1px 5px rgb(0, 0, 0), 1px 1px 5px rgb(0, 0, 0);">Welcome {{request.session.user_name}}!</h1>
+        <form class="example" action="/search" method="POST" style="margin-left: 650px;">
+            {% csrf_token %}
+            <input type="text" placeholder="Search.." name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+        <a href="/logout" style="font-size: 20px; color: red; margin-left: 20px;">Logout</a>
+    </div>
+    <audio class="bgMusic" style="float: right;" autoplay>
+        <source src="{% static 'rudolph.mp3' %}" type="audio/mpeg">
+    </audio>
+    <div id="links" style="display: flex; justify-content: space-between; margin-left: 600px; margin-right: 50px; ">
+        <a href="/create" style="font-size: 25px; color: red;  text-shadow: 1px 1px 5px rgb(0, 0, 0), 1px 1px 5px rgb(0, 0, 0);">Make Your Own Holiday Card</a>
+        <a href="/cards/mycards" style="font-size: 25px; color: red;  text-shadow: 1px 1px 5px rgb(0, 0, 0), 1px 1px 5px rgb(0, 0, 0);">View my Cards</a>
+    </div>
+    
+    <div class="recent">
+        <h2 style="text-decoration: underline; text-shadow: 1px 1px 5px rgb(0, 0, 0), 1px 1px 5px rgb(0, 0, 0);">Recently Added</h2>
+        {% for recent in recents %}
+        <a href="/create/{{recent.id}}"><img src="https://res.cloudinary.com/dnwhdkhgg/image/upload/v{{recent.img.version}}/{{recent.img.public_id}}.{{recent.img.format}} " alt="{{recent.name}}" style="width: 300px; display: inline-block; margin-right: 30px;" /></a>
+        {% endfor %}
+        <a href="cards/recent" style="font-size: 20px; color: red; margin-right: 10px; vertical-align: top; text-shadow: 1px 1px 5px rgb(0, 0, 0), 1px 1px 5px rgb(0, 0, 0);">View All Recent</a>
+    </div>
+    <div class="trending">
+        <h2 style="text-decoration: underline; text-shadow: 1px 1px 5px rgb(0, 0, 0), 1px 1px 5px rgb(0, 0, 0);">Trending Now</h2>
+        {% for trend in trending %}
+        <a href="/create/{{trend.id}}"><img src="https://res.cloudinary.com/dnwhdkhgg/image/upload/v{{trend.img.version}}/{{trend.img.public_id}}.{{trend.img.format}} " alt="{{trend.name}}" style="width: 300px; display: inline-block; margin-right: 30px; height: 200px;" /></a>
+        {% endfor %}
+        <a href="cards/trending" style="font-size: 20px; color: red; margin-right: 10px; vertical-align: top; text-shadow: 1px 1px 5px rgb(0, 0, 0), 1px 1px 5px rgb(0, 0, 0);">View All Trending Now</a>
+    </div>
+    <div class="allcards">
+        <h2 style="text-decoration: underline; text-shadow: 1px 1px 5px rgb(0, 0, 0), 1px 1px 5px rgb(0, 0, 0);">A-Z Cards</h2>
+        {% for card in all_cards %}
+        <a href="/create/{{card.id}}"><img src="https://res.cloudinary.com/dnwhdkhgg/image/upload/v{{card.img.version}}/{{card.img.public_id}}.{{card.img.format}} " alt="{{card.name}}" style="width: 300px; display: inline-block; margin-right: 30px; height: 200px;"/></a>
+        {% endfor %}
+        <a href="cards/a-z" style="font-size: 20px; color: red; margin-right: 10px; vertical-align: top; text-shadow: 1px 1px 5px rgb(0, 0, 0), 1px 1px 5px rgb(0, 0, 0);">View All Cards</a>
+    </div><br><br>
+    <div class="fa">
+        <ul>
+            <li><i class="fab fa-facebook-f" style="margin-left: 12px; margin-top: -5px;"></i></li>
+            <li><i class="fab fa-instagram" style="margin-left: 10px; margin-top: -5px;"></i></li>
+            <li><i class="fab fa-youtube" style="margin-left: 10px; margin-top: -5px;"></i></li>
+        </ul>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html>

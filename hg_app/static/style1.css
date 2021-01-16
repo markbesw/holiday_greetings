@@ -1,0 +1,71 @@
+body {
+  background-image: url("tree.jpeg");
+}
+#upload {
+background: #ffffff00;
+display: flex;
+flex-direction: column;
+box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
+/* margin-bottom: 30px; */
+}
+
+.file-upload-container {
+    width: 250px;
+    height: 50px;
+    overflow: hidden;
+    background: #3F51B5;
+    user-select: none;
+    transition: all 150ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    text-align: center;
+    color: white;
+    line-height: 50px;
+    font-weight: 300;
+    font-size: 20px;
+    margin-left: 150px;
+    margin-top: -200px;
+}
+.file-upload-container:hover {
+    cursor: pointer;
+    background: #3949AB;
+}
+#success {
+  color: #cd5601;
+  margin-top: 20px;
+  margin-left: 520px;
+  font-size: 20px;
+  font-weight: bold;
+}
+button[type="submit"] {
+  width: 300px;
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 24px;
+  border-radius: 8px;
+  font-family: 'Montserrat';
+  color: rgb(27, 166, 247);
+  text-align: center;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: .3s ease background-color;
+}
+button[type="submit"]:hover {
+  background-color: rgb(214, 226, 236);
+}
+.card {
+display: inline-block;
+margin-right: 150px;
+}
+.add_song {
+display: inline-block;
+height: 500px;
+vertical-align: top;
+color: white;
+}
+.table-dark {
+color: white;
+}
+
+form{
+  margin-top: -15px;
+}

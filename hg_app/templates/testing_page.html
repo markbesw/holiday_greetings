@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+#move {
+    position: absolute;
+    z-index: 9;
+    text-align: center;
+}
+
+#moveimage {
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+}
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View All Recent</title>
+    {% load static %}
+    <!-- <link rel="stylesheet" href="{% static 'style.css' %}"> -->
+
+
+</head>
+<body>
+
+    <div>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <form action="/upload" runat="server" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type='file' id="imgInp" name='media' style=""/>click here
+            <img id="blah" src="#" alt="your image" />
+            <input type="submit" value="post">
+        </form>
+            </div>
+    
+    
+    <canvas id="canvas" width="400" height="400" style="border: 1px solid black;background-color: white;">
+
+    </canvas>
+    <div id="move">
+        <img id="moveimage" src="../static/santa cap.png" alt="" srcset="" width="100">
+    </div>
+    
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+    //Make the DIV element draggagle:
+    dragElement(document.getElementById("move"));
+
+    function dragElement(elmnt) {
+    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    if (document.getElementById(elmnt.id + "image")) {
+        /* if present, the header is where you move the DIV from:*/
+        document.getElementById(elmnt.id + "image").onmousedown = dragMouseDown;
+    } else {
+        /* otherwise, move the DIV from anywhere inside the DIV:*/
+        elmnt.onmousedown = dragMouseDown;
+    }
+
+    function dragMouseDown(e) {
+        e = e || window.event;
+        e.preventDefault();
+        // get the mouse cursor position at startup:
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        document.onmouseup = closeDragElement;
+        // call a function whenever the cursor moves:
+        document.onmousemove = elementDrag;
+    }
+
+    function elementDrag(e) {
+        e = e || window.event;
+        e.preventDefault();
+        // calculate the new cursor position:
+        pos1 = pos3 - e.clientX;
+        pos2 = pos4 - e.clientY;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        // set the element's new position:
+        elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+        elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    }
+
+    function closeDragElement() {
+        /* stop moving when mouse button is released:*/
+        document.onmouseup = null;
+        document.onmousemove = null;
+    }
+    }
+
+    var canvas = document.getElementById("canvas"),
+    ctx = canvas.getContext("2d");
+
+    // canvas.width = 903;
+    // canvas.height = 657;
+
+
+    var background = new Image();
+    background.src = "../static/snowman_scene.jpg";
+
+    // Make sure the image is loaded first otherwise nothing will draw.
+    background.onload = function(){
+        ctx.drawImage(background,0,0);   
+    }
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function(e) {
+            $('#blah').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]); // convert to base64 string
+        }
+        }
+
+        $("#imgInp").change(function() {
+        readURL(this);
+        });
+
+    </script>
+     
+  <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
